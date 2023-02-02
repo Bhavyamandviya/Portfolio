@@ -17,7 +17,7 @@ html {
     font-family: 'Poppins';
     font-weight: bold;
     font-size: 25px;
-    color: gray;
+    color:goldenrod;
 }
 
 /* custom scroll bar */
@@ -115,7 +115,7 @@ section .title::after {
 
 .navbar.sticky {
     padding: 15px 0;
-    background: linear-gradient(210deg, rgb(38, 34, 30), rgba(0, 81, 255, 0.875));
+    background: linear-gradient(210deg, rgb(38, 34, 30), rgba(9, 43, 237, 0.875));
 }
 
 .navbar .max-width {
@@ -206,9 +206,9 @@ section .title::after {
 /* home section styling */
 .home {
     display: flex;
-    background:linear-gradient(210deg,rgb(38, 34, 30),rgba(0, 81, 255, 0.875)) no-repeat center;
+    background:linear-gradient(210deg,rgb(38, 34, 30),rgba(9, 43, 237, 0.875)) no-repeat center;
     height: 100vh;
-    color:gray;
+    color:whitesmoke;
     min-height: 500px;
     background-size: cover;
     background-attachment: fixed;
@@ -253,7 +253,7 @@ section .title::after {
     margin-top: 20px;
     font-weight: 400;
     border-radius: 6px;
-    border: 2px solid gray;
+    border: 2px solid #f19408;
     transition: all 0.3s ease;
 }
 
