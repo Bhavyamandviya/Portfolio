@@ -17,7 +17,7 @@ html {
     font-family: 'Poppins';
     font-weight: bold;
     font-size: 25px;
-    color: rgba(237, 139, 12, 0.885);
+    color: gray;
 }
 
 /* custom scroll bar */
@@ -208,7 +208,7 @@ section .title::after {
     display: flex;
     background:linear-gradient(210deg,rgb(38, 34, 30),rgba(0, 81, 255, 0.875)) no-repeat center;
     height: 100vh;
-    color: rgba(237, 139, 12, 0.885);
+    color:gray;
     min-height: 500px;
     background-size: cover;
     background-attachment: fixed;
@@ -253,7 +253,7 @@ section .title::after {
     margin-top: 20px;
     font-weight: 400;
     border-radius: 6px;
-    border: 2px solid#eaa221;
+    border: 2px solid gray;
     transition: all 0.3s ease;
 }
 
