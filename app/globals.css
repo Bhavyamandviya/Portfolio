@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-jetbrainsMono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply font-primary bg-[#000807] text-white;
+  }
+
+  /* Typography */
+  .h1 {
+    @apply text-[36px] xl:text-[40px] font-extrabold uppercase leading-tight;
+  }
+
+  .h2 {
+    @apply text-[32px] xl:text-[36px] font-extrabold uppercase leading-tight;
+  }
+
+  .h3 {
+    @apply text-[20px] xl:text-[24px] font-extrabold uppercase leading-tight;
+  }
+
+  .p {
+    @apply text-base text-white/60 font-light leading-relaxed;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #57ebd7;
+  }
+  .cv-button {
+    border: 1px solid #70757f !important;
+  }
+  .cv-button:hover {
+    background-color: #ffffff !important;
+  }
+  .swal2-confirm .swal2-styled {
+    background-color: #70757f !important;
+  }
+}
