@@ -5,7 +5,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import ChatBot from "@/components/Chatbot";
-import { motion } from "framer-motion";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
