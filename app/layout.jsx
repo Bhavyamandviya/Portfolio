@@ -4,7 +4,7 @@ import "./globals.css";
 // components
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
-import ChatBot from "@/components/Chatbot";
+import ChatBot from "./chatbot/page";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
