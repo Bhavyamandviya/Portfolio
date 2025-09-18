@@ -9,7 +9,6 @@ import Swal from "sweetalert2";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { EmailTemplate } from "@/components/email-template";
 
 const info = [
   {
@@ -43,7 +42,7 @@ const Contact = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    // Validation checks remain the same
+    // Validation checks
     if (
       !formData.get("name") ||
       !formData.get("email") ||
@@ -73,54 +72,22 @@ const Contact = () => {
     const message = formData.get("message");
 
     try {
-      // 1. First send the form submission to YOUR email (mandviyabhavya@gmail.com)
-      const formSubmissionResponse = await fetch(
-        "https://api.web3forms.com/submit",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "bb414293-cbf8-4ad9-8f7d-f709325f0922",
-            name,
-            email: userEmail,
-            message: `New contact form submission:\n\nName: ${name}\nEmail: ${userEmail}\nMessage: ${message}`,
-            subject: "New Contact Form Submission",
-            // This ensures YOU receive the form data
-            to: "mandviyabhavya@gmail.com",
-          }),
-        }
-      );
+      // Send form data to your API route
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email: userEmail,
+          message,
+        }),
+      });
 
-      const formResult = await formSubmissionResponse.json();
+      const result = await response.json();
 
-      if (formResult.success) {
-        // 2. Then send the thank-you email to THE USER (their submitted email)
-        const emailResponse = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: "bb414293-cbf8-4ad9-8f7d-f709325f0922",
-            subject: `Thank you for contacting us, ${name}!`,
-            from_name: "Bhavya Mandviya",
-            email: userEmail, // Send to the user's email
-            reply_to: "mandviyabhavya@gmail.com",
-            message: EmailTemplate({ name, email: userEmail, message }),
-            // These parameters help distinguish this as an outgoing email
-            botcheck: "false",
-            no_auto_response: "true",
-            // This ensures it goes to the user, not you
-            to: userEmail,
-          }),
-        });
-
-        const emailResult = await emailResponse.json();
-
+      if (response.ok && result.success) {
         Swal.fire({
           title: "Success!",
           text: "Message sent successfully! Check your email for confirmation.",
@@ -128,9 +95,10 @@ const Contact = () => {
         });
         formRef.current.reset();
       } else {
-        throw new Error("Form submission failed");
+        throw new Error(result.error || "Failed to send message");
       }
     } catch (error) {
+      console.error("Error:", error);
       Swal.fire({
         title: "Error!",
         text: "Something went wrong. Please try again.",
@@ -185,7 +153,7 @@ const Contact = () => {
           {/* form */}
           <div className="w-full max-w-[500px]">
             <form
-              ref={formRef} // Attach the reference to the form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-8 bg-secondary rounded-xl"
             >

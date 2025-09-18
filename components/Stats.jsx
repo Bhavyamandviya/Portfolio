@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 
 const stats = [
   {
-    num: 2,
+    num: 3,
     text: "Years of experience",
   },
   {
@@ -38,6 +38,9 @@ const Stats = () => {
                   delay={2}
                   className="text-4xl xl:text-6xl font-extrabold"
                 />
+                <span  className={`${
+                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                  } leading-snug text-white/80`}>+</span>
                 <p
                   className={`${
                     item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
