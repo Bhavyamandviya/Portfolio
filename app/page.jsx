@@ -11,7 +11,7 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
 const Home = () => {
-  console.log("version 1");
+  console.log("version 2");
   
   return (
     <motion.div
