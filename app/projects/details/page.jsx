@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 import { BsArrowUpRight, BsArrowLeft, BsCalendar, BsPeople, BsGear, BsShop, BsHeart, BsBuilding } from "react-icons/bs";
+import { Suspense } from "react";
 
 const projectsDetailed = {
   "deal-finder": {
@@ -230,7 +231,8 @@ const projectsDetailed = {
   }
 };
 
-const ProjectDetails = () => {
+// Separate component for handling search params
+const ProjectDetailsContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selectedProject, setSelectedProject] = useState(null);
@@ -558,6 +560,27 @@ const ProjectDetails = () => {
         </motion.div>
       </div>
     </motion.div>
+  );
+};
+
+// Loading component
+const ProjectDetailsLoading = () => (
+  <div className="min-h-screen flex items-center justify-center bg-black">
+    <div className="text-center">
+      <div className="animate-pulse">
+        <div className="h-8 bg-gray-700 rounded w-48 mx-auto mb-4"></div>
+        <div className="h-4 bg-gray-700 rounded w-32 mx-auto"></div>
+      </div>
+    </div>
+  </div>
+);
+
+// Main component with Suspense wrapper
+const ProjectDetails = () => {
+  return (
+    <Suspense fallback={<ProjectDetailsLoading />}>
+      <ProjectDetailsContent />
+    </Suspense>
   );
 };
 
