@@ -57,7 +57,7 @@ const ChatBot = () => {
   const knowledgeBase = {
     skills: {
       frontend: ["React.js", "Next.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Material-UI", "Framer Motion"],
-      backend: ["Node.js", "Express.js", "Python", "Django", "REST APIs", "GraphQL", "Socket.io"],
+      backend: ["Node.js", "Express.js","REST APIs", "GraphQL", "Socket.io"],
       databases: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
       tools: ["Git", "Docker", "AWS", "Stripe", "Razorpay", "WhatsApp API", "QR Code Integration"],
       mobile: ["React Native", "Mobile App Development"]
