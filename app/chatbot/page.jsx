@@ -305,14 +305,14 @@ const ChatBot = () => {
                 <BsEnvelope className="text-[#70757f] text-lg" />
                 <div>
                   <p className="text-xs text-gray-600">Email</p>
-                  <p className="text-sm font-medium text-gray-800">Available upon request</p>
+                  <p className="text-sm font-medium text-gray-800">mandviyabhavya@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <BsPhone className="text-[#70757f] text-lg" />
                 <div>
                   <p className="text-xs text-gray-600">Phone</p>
-                  <p className="text-sm font-medium text-gray-800">Available upon request</p>
+                  <p className="text-sm font-medium text-gray-800">+91 9284244459</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
